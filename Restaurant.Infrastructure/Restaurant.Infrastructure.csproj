@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- REMOVED: <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" /> (Moved to Application project) -->
+		<!-- REMOVED: <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" /> (Outdated and likely not needed for .NET 8.0) -->
+		<!-- REMOVED: <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" /> (Outdated and conflicting) -->
+
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.0" />
+		<!-- ADDED: Required for AddIdentityApiEndpoints in a class library -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Restaurant.Application\Restaurant.Application.csproj" />
+	</ItemGroup>
+
+</Project>
