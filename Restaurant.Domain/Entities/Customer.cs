@@ -18,7 +18,7 @@ public class Customer
 
     public ICollection<Rating> Ratings { get; set; } = [];
     public ICollection<Order> Orders { get; set; } = [];
-    public ICollection<Restaurant> FavoriteRestaurants { get; set; } = [];
+    public ICollection<RestaurantEntity> FavoriteRestaurants { get; set; } = [];
 
 
     // الربط مع جدول (IdentityUser)        

@@ -6,7 +6,7 @@ namespace Restaurant.Infrastructure.Data.Context
 {
     public class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : IdentityDbContext<ApplicationUser>(options)
     {
-        public DbSet<Restaurant.Domain.Entities.Restaurant> Restaurants { get; set; } = default!;
+        public DbSet<Restaurant.Domain.Entities.RestaurantEntity> Restaurants { get; set; } = default!;
         public DbSet<Dish> Dishes { get; set; } = default!;
         public DbSet<Category> Categories { get; set; } = default!;
         public DbSet<Customer> Customers { get; set; } = default!;
@@ -66,18 +66,18 @@ namespace Restaurant.Infrastructure.Data.Context
                 .ValueGeneratedOnAdd()
                 .HasDefaultValueSql("NEXT VALUE FOR dbo.CommonSequence");
 
-            builder.Entity<Restaurant.Domain.Entities.Restaurant>()
+            builder.Entity<Restaurant.Domain.Entities.RestaurantEntity>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd()
                 .HasDefaultValueSql("NEXT VALUE FOR dbo.CommonSequence");
 
 
             // Restaurant - Address (One-to-One)
-            builder.Entity<Restaurant.Domain.Entities.Restaurant>()
+            builder.Entity<Restaurant.Domain.Entities.RestaurantEntity>()
                 .OwnsOne(r => r.Address);
 
             // Restaurant - Dishes (One-to-Many)
-            builder.Entity<Restaurant.Domain.Entities.Restaurant>()
+            builder.Entity<Restaurant.Domain.Entities.RestaurantEntity>()
                 .HasMany(r => r.Dishes)
                 .WithOne(d => d.Restaurant)
                 .HasForeignKey(d => d.RestaurantId)
@@ -139,7 +139,7 @@ namespace Restaurant.Infrastructure.Data.Context
             .WithMany()
             .UsingEntity(j => j.ToTable("CustomerFavoriteRestaurants"));
 
-            builder.Entity<Restaurant.Domain.Entities.Restaurant>()
+            builder.Entity<Restaurant.Domain.Entities.RestaurantEntity>()
            .HasOne(r => r.Owner)
               .WithMany(u => u.OwnedRestaurants)
               .HasForeignKey(r => r.OwnerId)

@@ -23,7 +23,7 @@ public class Dish
     [Required]
     public int RestaurantId { get; set; }
 
-    public Restaurant Restaurant { get; set; } = default!;
+    public RestaurantEntity Restaurant { get; set; } = default!;
 
     [Required]
     public int CategoryId { get; set; }

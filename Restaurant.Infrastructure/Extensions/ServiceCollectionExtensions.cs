@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Restaurant.Application.Features.Restaurants.Commands.DeleteRestaurant;
 using Restaurant.Application.Features.Users.Implementations;
 using Restaurant.Application.Features.Users.Interfaces;
 using Restaurant.Application.Interfaces.Services;
@@ -32,12 +33,16 @@ public static class ServiceCollectionExtensions
            .AddEntityFrameworkStores<RestaurantDbContext>();
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IRestaurantRepository, RestaurantsRepository>();
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IRoleSeeder, RoleSeeder>();
         services.AddScoped<IUserContext, UserContext>();
         services.AddScoped<ICategoryAuthorizationService, CategoryAuthorizationService>();
+        services.AddScoped<ICustomerAuthorizationService, CustomerAuthorizationService>();
+        services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
 
         services.AddHttpContextAccessor();
     }

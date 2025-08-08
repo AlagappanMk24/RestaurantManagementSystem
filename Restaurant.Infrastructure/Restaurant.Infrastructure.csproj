@@ -7,9 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- REMOVED: <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" /> (Moved to Application project) -->
-		<!-- REMOVED: <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" /> (Outdated and likely not needed for .NET 8.0) -->
-		<!-- REMOVED: <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" /> (Outdated and conflicting) -->
 
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.0" />
@@ -22,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Restaurant.Application\Restaurant.Application.csproj" />
+	  <ProjectReference Include="..\Restaurant.Application\Restaurant.Application.csproj" />
 	</ItemGroup>
 
 </Project>

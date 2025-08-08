@@ -32,7 +32,7 @@ public class ApplicationUser : IdentityUser
 
     public List<RefreshToken> RefreshTokens { get; set; } = [];
 
-    public List<Restaurant> OwnedRestaurants { get; set; } = [];
+    public List<RestaurantEntity> OwnedRestaurants { get; set; } = [];
 
     //migrationBuilder.Sql("UPDATE Restaurants " +
     //        "SET OwnerId = (SELECT TOP 1 Id FROM AspNetUsers)");

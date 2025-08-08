@@ -26,5 +26,5 @@ public class Rating
     public Dish Dish { get; set; } = default!;
 
     public int RestaurantId { get; set; }
-    public Restaurant Restaurant { get; set; } = default!;
+    public RestaurantEntity Restaurant { get; set; } = default!;
 }
