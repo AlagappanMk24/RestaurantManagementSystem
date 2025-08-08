@@ -1,0 +1,95 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Restaurant.Application.Features.Restaurants.Commands.CreateRestaurant;
+using Restaurant.Application.Features.Restaurants.Commands.DeleteRestaurant;
+using Restaurant.Application.Features.Restaurants.Commands.UpdateRestaurant;
+using Restaurant.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Queries.GetAllRestaurants;
+using Restaurant.Application.Restaurants.Queries.GetCategoriesForRestaurant;
+using Restaurant.Application.Restaurants.Queries.GetRestaurantById;
+using Restaurant.Application.Restaurants.Queries.GetRestaurantByName;
+using Restaurant.Application.Restaurants.Queries.GetRestaurantStatistics;
+using Restaurant.Application.Restaurants.Queries.GetTopRatedRestaurants;
+using Restaurant.Domain.Constants;
+
+namespace Restaurant.API.Controllers;
+
+[ApiVersion("3.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiController]
+[Authorize]
+public class RestaurantController(IMediator mediator) : ControllerBase
+{
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll([FromQuery] GetAllRestaurantsQuery query)
+    {
+        var restaurants = await mediator.Send(query);
+        return Ok(restaurants);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<RestaurantDto?>> GetById([FromRoute] int id)
+    {
+        var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
+        return Ok(restaurant);
+    }
+
+    [HttpGet("Name")]
+    public async Task<ActionResult<RestaurantDto?>> GetByName([FromQuery] string name)
+    {
+        var restaurant = await mediator.Send(new GetRestaurantByNameQuery(name));
+        return Ok(restaurant);
+    }
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteRestaurant([FromRoute] int id)
+    {
+        await mediator.Send(new DeleteRestaurantCommand(id));
+        return NoContent();
+    }
+
+    [HttpPatch("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, [FromBody] UpdateRestaurantCommand command)
+    {
+        command.Id = id;            // حقن الـ Id القادم من الـ route
+        await mediator.Send(command);
+        return NoContent();
+    }
+
+
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize(Roles = UserRoles.Owner)]
+    public async Task<IActionResult> CreateRestaurant([FromBody] CreateRestaurantCommand command)
+    {
+        int id = await mediator.Send(command);
+        return CreatedAtAction(nameof(GetById), new { id }, null);
+    }
+
+    [HttpGet("{Id}/Categories")]
+    public async Task<ActionResult<List<string>>> GetCategoriesForRestaurant([FromRoute] int Id = 400)
+    {
+        var categories = await mediator.Send(new GetCategoriesForRestaurantQuery(Id));
+        return Ok(categories);
+    }
+
+    [HttpGet("TopRated")]
+    public async Task<ActionResult<List<RestaurantDto>>> GetTopRated([FromQuery] int count = 5)
+    {
+        var result = await mediator.Send(new GetTopRatedRestaurantsQuery(count));
+        return Ok(result);
+    }
+
+    [HttpGet("{Id}/Statistics")]
+    public async Task<ActionResult<RestaurantStatisticsDto>> GetStatistics([FromRoute] int Id = 400)
+    {
+        var result = await mediator.Send(new GetRestaurantStatisticsQuery(Id));
+        return Ok(result);
+    }
+}
