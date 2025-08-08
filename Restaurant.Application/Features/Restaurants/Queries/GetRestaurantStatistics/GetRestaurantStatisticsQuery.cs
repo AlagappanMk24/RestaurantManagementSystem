@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Restaurants.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Dtos;
 
-namespace Restaurants.Application.Restaurants.Queries.GetRestaurantStatistics
+namespace Restaurant.Application.Restaurants.Queries.GetRestaurantStatistics
 {
     public class GetRestaurantStatisticsQuery(int restaurantId) : IRequest<RestaurantStatisticsDto>
     {

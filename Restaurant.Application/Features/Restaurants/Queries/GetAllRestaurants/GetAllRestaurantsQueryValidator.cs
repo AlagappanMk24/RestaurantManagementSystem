@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Restaurants.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Dtos;
 
-namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants
+namespace Restaurant.Application.Restaurants.Queries.GetAllRestaurants
 {
     public class GetAllRestaurantsQueryValidator : AbstractValidator<GetAllRestaurantsQuery>
     {

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Restaurant.Domain.Exceptions;
 using Restaurant.Domain.Repositories;
-using Restaurants.Application.Restaurants.Queries.GetCategoriesForRestaurant;
+using Restaurant.Application.Restaurants.Queries.GetCategoriesForRestaurant;
 
 namespace Restaurant.Application.Features.Restaurants.Queries.GetCategoriesForRestaurant;
 

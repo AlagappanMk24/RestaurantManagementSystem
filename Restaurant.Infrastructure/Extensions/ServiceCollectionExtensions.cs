@@ -35,6 +35,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IRestaurantRepository, RestaurantsRepository>();
+        services.AddScoped<IDishesRepository, DishesRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<ITokenService, TokenService>();
@@ -43,6 +45,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ICategoryAuthorizationService, CategoryAuthorizationService>();
         services.AddScoped<ICustomerAuthorizationService, CustomerAuthorizationService>();
         services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
+        services.AddScoped<IOrderAuthorizationService, OrderAuthorizationService>();
 
         services.AddHttpContextAccessor();
     }

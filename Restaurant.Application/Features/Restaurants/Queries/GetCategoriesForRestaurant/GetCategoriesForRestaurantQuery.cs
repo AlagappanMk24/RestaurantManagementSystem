@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Restaurants.Application.Restaurants.Queries.GetCategoriesForRestaurant
+namespace Restaurant.Application.Restaurants.Queries.GetCategoriesForRestaurant
 {
     public class GetCategoriesForRestaurantQuery(int restaurantId) : IRequest<List<string>>
     {

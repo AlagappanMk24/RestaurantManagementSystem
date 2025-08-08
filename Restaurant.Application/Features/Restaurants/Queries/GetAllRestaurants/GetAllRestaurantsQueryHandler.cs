@@ -3,8 +3,8 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Restaurant.Application.Common;
 using Restaurant.Domain.Repositories;
-using Restaurants.Application.Restaurants.Dtos;
-using Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
+using Restaurant.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Queries.GetAllRestaurants;
 
 namespace Restaurant.Application.Features.Restaurants.Queries.GetAllRestaurants;
 

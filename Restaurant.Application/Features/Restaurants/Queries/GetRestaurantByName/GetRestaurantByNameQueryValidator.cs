@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Restaurants.Application.Restaurants.Queries.GetRestaurantByName
+namespace Restaurant.Application.Restaurants.Queries.GetRestaurantByName
 {
     public class GetRestaurantByNameQueryValidator : AbstractValidator<GetRestaurantByNameQuery>
     {

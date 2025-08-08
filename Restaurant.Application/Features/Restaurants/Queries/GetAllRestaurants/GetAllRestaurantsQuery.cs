@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Restaurant.Application.Common;
 using Restaurant.Domain.Constants;
-using Restaurants.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Dtos;
 
-namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants
+namespace Restaurant.Application.Restaurants.Queries.GetAllRestaurants
 {
     public class GetAllRestaurantsQuery : IRequest<PagedResult<RestaurantDto>>
     {

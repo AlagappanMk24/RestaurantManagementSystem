@@ -3,7 +3,7 @@ using Restaurant.Application.Features.Restaurants.Commands.CreateRestaurant;
 using Restaurant.Application.Features.Restaurants.Commands.UpdateRestaurant;
 using Restaurant.Domain.Entities;
 
-namespace Restaurants.Application.Restaurants.Dtos
+namespace Restaurant.Application.Restaurants.Dtos
 {
     public class RestaurantsProfile : Profile
     {

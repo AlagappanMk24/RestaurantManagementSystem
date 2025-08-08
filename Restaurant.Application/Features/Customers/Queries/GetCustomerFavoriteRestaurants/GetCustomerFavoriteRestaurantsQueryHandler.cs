@@ -6,7 +6,7 @@ using Restaurant.Domain.Entities;
 using Restaurant.Domain.Exceptions;
 using Restaurant.Domain.Interfaces;
 using Restaurant.Domain.Repositories;
-using Restaurants.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Dtos;
 
 namespace Restaurant.Application.Features.Customers.Queries.GetCustomerFavoriteRestaurants;
 

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Restaurants.Application.Customers.Dtos;
+using Restaurant.Application.Customers.Dtos;
 
 namespace Restaurant.Application.Features.Customers.Queries.GetCustomerByEmail;
 

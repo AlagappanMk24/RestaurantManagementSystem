@@ -2,8 +2,8 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Restaurant.Domain.Repositories;
-using Restaurants.Application.Restaurants.Dtos;
-using Restaurants.Application.Restaurants.Queries.GetTopRatedRestaurants;
+using Restaurant.Application.Restaurants.Dtos;
+using Restaurant.Application.Restaurants.Queries.GetTopRatedRestaurants;
 
 namespace Restaurant.Application.Features.Restaurants.Queries.GetTopRatedRestaurants;
 

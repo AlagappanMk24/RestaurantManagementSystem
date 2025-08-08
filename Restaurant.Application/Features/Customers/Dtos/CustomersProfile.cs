@@ -2,7 +2,7 @@
 using Restaurant.Application.Features.Customers.Commands.CreateCustomer;
 using Restaurant.Application.Features.Customers.Commands.UpdateCustomer;
 using Restaurant.Domain.Entities;
-using Restaurants.Application.Customers.Dtos;
+using Restaurant.Application.Customers.Dtos;
 
 namespace Restaurant.Application.Features.Customers.Dtos;
 public class CustomersProfile : Profile

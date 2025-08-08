@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Restaurant.Application.Common;
 using Restaurant.Domain.Constants;
-using Restaurants.Application.Customers.Dtos;
+using Restaurant.Application.Customers.Dtos;
 
 namespace Restaurant.Application.Features.Customers.Queries.GetAllCustomers;
 

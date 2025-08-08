@@ -13,14 +13,16 @@ using Restaurant.Application.Features.Customers.Queries.GetCustomerByName;
 using Restaurant.Application.Features.Customers.Queries.GetCustomerByPhoneNumber;
 using Restaurant.Application.Features.Customers.Queries.GetCustomerFavoriteRestaurants;
 using Restaurant.Domain.Exceptions;
-using Restaurants.Application.Customers.Dtos;
-using Restaurants.Application.Restaurants.Dtos;
+using Restaurant.Application.Customers.Dtos;
+using Restaurant.Application.Restaurants.Dtos;
 using System.Data;
 
 namespace Restaurant.API.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    [Authorize]
     public class CustomerController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
