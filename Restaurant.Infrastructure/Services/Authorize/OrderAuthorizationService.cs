@@ -24,7 +24,6 @@ public class OrderAuthorizationService(
             user.IsInRole(UserRoles.Admin) ||
             user.IsInRole(UserRoles.SuperAdmin);
     }
-
     public bool CanViewAllOrders()
     {
         var user = userContext.GetCurrentUser();
@@ -36,7 +35,6 @@ public class OrderAuthorizationService(
         }
         return user.IsInRole(UserRoles.Admin) || user.IsInRole(UserRoles.SuperAdmin);
     }
-
     public bool CanViewCustomerOrder(Customer customer)
     {
         var user = userContext.GetCurrentUser();
@@ -50,7 +48,6 @@ public class OrderAuthorizationService(
                user.IsInRole(UserRoles.Admin) ||
                user.IsInRole(UserRoles.SuperAdmin);
     }
-
     public bool CanViewRestaurantOrders(string ownerId)
     {
         var user = userContext.GetCurrentUser();
@@ -73,8 +70,6 @@ public class OrderAuthorizationService(
 
         return true;
     }
-
-
     public bool CanModifyOrder(Order order)
     {
         var user = userContext.GetCurrentUser();
