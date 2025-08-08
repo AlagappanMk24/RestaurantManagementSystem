@@ -14,6 +14,7 @@ using Restaurant.Infrastructure.Repositories;
 using Restaurant.Infrastructure.Seeders;
 using Restaurant.Infrastructure.Services;
 using Restaurant.Infrastructure.Services.Authorize;
+using Restaurants.Infrastructure.Repositories;
 
 namespace Restaurant.Infrastructure.Extensions;
 
@@ -37,6 +38,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IRestaurantRepository, RestaurantsRepository>();
         services.AddScoped<IDishesRepository, DishesRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IRatingsRepository, RatingsRepository>();
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<ITokenService, TokenService>();
@@ -46,7 +48,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ICustomerAuthorizationService, CustomerAuthorizationService>();
         services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
         services.AddScoped<IOrderAuthorizationService, OrderAuthorizationService>();
-
+        services.AddScoped<IRatingAuthorizationService, RatingAuthorizationService>();
         services.AddHttpContextAccessor();
     }
 }

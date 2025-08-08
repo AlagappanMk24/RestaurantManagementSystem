@@ -6,7 +6,7 @@ using Restaurant.Application.Features.Ratings.Commands.DeleteRating;
 using Restaurant.Application.Features.Ratings.Commands.UpdateRating;
 using Restaurant.Application.Features.Ratings.Dtos;
 using Restaurant.Application.Features.Ratings.Queries.GetAllRatings;
-using Restaurants.Application.Ratings.Queries.GetRatingById;
+using Restaurant.Application.Features.Ratings.Queries.GetRatingById;
 
 namespace Restaurant.API.Controllers
 {
